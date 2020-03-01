@@ -1,0 +1,21 @@
+ #all-items{
+width: 100%;
+ }
+ #first-item-img{
+     width: 20%;
+     margin-right: 10px;
+ }
+ #secund-item-img{
+    width: 20%;
+    margin-right: 10px;
+
+}
+#thered-item-img{
+    width: 20%;
+    margin-right: 10px;
+
+}
+ul {
+    margin: 30px;
+    list-style-type: circle;
+}
