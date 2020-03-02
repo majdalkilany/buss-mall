@@ -1,4 +1,4 @@
- #all-items{
+ /* #all-items{
 width: 100%;
  }
  #first-item-img{
@@ -18,4 +18,12 @@ width: 100%;
 ul {
     margin: 30px;
     list-style-type: circle;
+} */
+
+img{
+    width: 200px;
+    height: 200px;
+}
+div {
+    display: inline;
 }
