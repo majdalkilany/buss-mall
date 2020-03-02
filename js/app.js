@@ -85,6 +85,7 @@ function clicksImagesEvint(event){
       if (totalClicks === 25) {
         groupItemSection.removeEventListener('click', clicksImagesEvint);
        listItem()
+       renderChartResults();
       }
 
 }
@@ -94,47 +95,7 @@ groupItemSection.addEventListener('click', clicksImagesEvint)
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-// // eventlistener
-// function clickImage(e) {
-//     // console.log(e);
-//     // console.log(e.target);
-//     groupItemSection.addEventListener('click', clickImage);
-//       if (e.target.id === 'first-item-img' || e.target.id === 'secund-item-img' || e.target.id === 'thered-item-img') {
-//         pickRandomImages();
-//         totalClicks++;
-//         console.log(totalClicks + '  majd')
-        
-//     }
-//     for (var i = 0 ; i < itemsArr.length ; i++ ){
-//     if( firstItemImage.alt = itemsArr[i].name) {
-//         itemsArr[i].viwe++;
-// // console.log(viwe + "value")
-//         // console.log(event.target.id)
-//         // console. log('a',this.viwe)
-//     }
-
-//     if( secundItemImage.alt = itemsArr[i].name) {
-//         itemsArr[i].viwe++;
-// // console.log(viwe + "value")
-//         // console.log(event.target.id)
-//         // console. log('a',this.viwe)
-//     }
-    
-//     if( thieredItemImage.alt = itemsArr[i].name) {
-//         itemsArr[i].viwe++;
-// // console.log(viwe + "value")
-//         // console.log(event.target.id)
-//         // console. log('a',this.viwe)
-//     }
-// }
-// }
-
-
-
-
-// });
-// }
+// render 
 function listItem() {
     var ulE1 = document.getElementById('buss-clicks');
     for (var i = 0; i < itemsArr.length - 1; i++) {
@@ -145,4 +106,66 @@ function listItem() {
 
     }
 }
-// listItem()
+function renderChartResults(){
+  var itemsName = [];
+  var itemsclick = [];
+  var ItemsViwe =[];
+  for ( var i= 0 ; i < itemsArr.length ; i++){
+    var nameOfArr = itemsArr[i].name
+    var likeItems = itemsArr[i].clicsks
+    var viewChart = itemsArr[i].viwe
+
+     itemsName.push(nameOfArr);
+     itemsclick.push(likeItems);
+     ItemsViwe.push(viewChart);
+
+  }
+
+  var ctx = document.getElementById('myItems').getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: itemsName,
+          datasets: [{
+              label: '# clicks',
+              data: itemsclick,
+              // data:ItemsViwe, 
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+            },{
+              label: '# view',
+
+              labels : itemsName, 
+               data:ItemsViwe, 
+
+
+
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+  
+}
