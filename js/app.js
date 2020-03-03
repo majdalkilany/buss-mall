@@ -16,6 +16,7 @@ var itemsArr = [];//an array to store all  objects
 var totalClicks = 0;
 var testArr = [];
 var storeArr = [];
+var ulE1 = document.getElementById('buss-clicks');
 
 function Items(name) {
     this.name = name.split('.')[0]
@@ -23,6 +24,7 @@ function Items(name) {
     itemsArr.push(this);
     this.viwe = 0;
     this.clicsks = 0;
+    setItem();
 }
 function pickRandomImages() {
     firstImageRandom = itemsArr[randomNumber(0, itemsArr.length - 1)];
@@ -64,6 +66,10 @@ function pickRandomImages() {
 
 for (var i = 0; i < itemsEmg.length; i++) {
     new Items(itemsEmg[i]);
+    setItem()
+        // ulE1= document.getElementById("buss-clicks");
+        // ulE1.innerHTML = "";
+
 }
 
 groupItemSection.addEventListener('click', clicksImagesEvint)
@@ -199,3 +205,21 @@ function renderChartResults() {
     });
 
 }
+function setItem(){
+    var order = JSON.stringify(itemsclick);
+    localStorage.setItem( 'newValue', order);
+    // var orderview = JSON.stringify(itemsArr);
+    // localStorage.setItem( 'newValueOfViwe', orderview);
+    
+console.log()
+  }
+  function getItem(){
+    var newValue = localStorage.getItem('newValue');
+    itemsclick = JSON.parse(newValue);
+
+    // var newValueValue = localStorage.getItem('newValueOfViwe');
+    // ItemsViwe = JSON.parse(newValueValue);
+    listItem()
+
+  }
+  getItem()
