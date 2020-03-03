@@ -14,6 +14,8 @@ var thiredImageRandom;
 
 var itemsArr = [];//an array to store all  objects
 var totalClicks = 0;
+var testArr = []; 
+var storeArr= [];
 
 function Items(name) {
     this.name = name.split('.')[0]
@@ -22,8 +24,6 @@ function Items(name) {
     this.viwe = 0;
     this.clicsks =0;
 }
-
-
 function pickRandomImages() {
     firstImageRandom = itemsArr[randomNumber(0, itemsArr.length - 1)];
     secundImageRandom = itemsArr[randomNumber(0, itemsArr.length - 1)];
@@ -39,20 +39,21 @@ function pickRandomImages() {
     thieredItemImage.setAttribute('src', thiredImageRandom.UrlImages);
     thieredItemImage.setAttribute('alt', thiredImageRandom.name);
 
-    while(firstItemImage.alt === secundItemImage.alt || firstItemImage.alt === thieredItemImage.alt || secundItemImage.alt === thieredItemImage.alt) {
+    while(firstItemImage.alt === secundItemImage.alt || firstItemImage.alt === thieredItemImage.alt || secundItemImage.alt === thieredItemImage.alt || testArr.includes(firstImageRandom)|| testArr.includes(secundImageRandom)||testArr.includes(thiredImageRandom)) {
         console.log('majd');
         firstImageRandom = itemsArr[randomNumber(0, itemsArr.length - 1)];
         secundImageRandom = itemsArr[randomNumber(0, itemsArr.length - 1)];
         thiredImageRandom = itemsArr[randomNumber(0, itemsArr.length - 1)];
-        firstItemImage.setAttribute('src', firstImageRandom.UrlImages);
+        
+    firstItemImage.setAttribute('src', firstImageRandom.UrlImages);
     firstItemImage.setAttribute('alt', firstImageRandom.name);
-
+firstImageRandom.viwe++
     secundItemImage.setAttribute('src', secundImageRandom.UrlImages);
     secundItemImage.setAttribute('alt', secundImageRandom.name);
-
+secundImageRandom.viwe++
     thieredItemImage.setAttribute('src', thiredImageRandom.UrlImages);
     thieredItemImage.setAttribute('alt', thiredImageRandom.name);
-    
+         thiredImageRandom.viwe++
         }
 
     // firstItemImage.setAttribute('src', firstImageRandom.UrlImages);
@@ -61,7 +62,11 @@ function pickRandomImages() {
     // secundItemImage.setAttribute('alt', secundImageRandom.name);
     // // 
     // thieredItemImage.setAttribute('src', thiredImageRandom.UrlImages);
-    // thieredItemImage.setAttribute('alt', thiredImageRandom.name);
+    testArr =[];
+    testArr.push(firstImageRandom);
+    testArr.push(secundImageRandom);
+    testArr.push(thiredImageRandom);
+     // thieredItemImage.setAttribute('alt', thiredImageRandom.name);
 }
 
 for (var i = 0; i < itemsEmg.length; i++) {
@@ -91,23 +96,13 @@ function clicksImagesEvint(event){
      if (event.target.id === 'first-item-img' || event.target.id === 'secund-item-img' || event.target.id === 'thered-item-img') {
                         // itemsArr.viwe++
 
-        for( var j =0 ; j<itemsArr.length; j++ ){
-            if ( firstItemImage.alt=== itemsArr[j].name){
-                itemsArr[j].viwe++
-            }
-            if ( secundItemImage.alt=== itemsArr[j].name){
-                itemsArr[j].viwe++
-            }
-            // for( var j =0 ; j<itemsArr.length; j++ )
-            if ( thieredItemImage.alt=== itemsArr[j].name){
-              }  itemsArr[j].viwe++
-            }
     pickRandomImages();
     totalClicks++;
     
       }
       if (event.target.id === 'first-item-img'){
         firstImageRandom.clicsks++
+
         // firstImageRandom.viwe++
 
       }
