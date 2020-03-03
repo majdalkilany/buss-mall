@@ -39,23 +39,30 @@ function pickRandomImages() {
     thieredItemImage.setAttribute('src', thiredImageRandom.UrlImages);
     thieredItemImage.setAttribute('alt', thiredImageRandom.name);
 
-    if  (firstImageRandom.alt === secundImageRandom.alt || firstImageRandom.alt === thiredImageRandom.alt || secundImageRandom.alt === thiredImageRandom.alt) {
+    while(firstItemImage.alt === secundItemImage.alt || firstItemImage.alt === thieredItemImage.alt || secundItemImage.alt === thieredItemImage.alt) {
         console.log('majd');
         firstImageRandom = itemsArr[randomNumber(0, itemsArr.length - 1)];
         secundImageRandom = itemsArr[randomNumber(0, itemsArr.length - 1)];
         thiredImageRandom = itemsArr[randomNumber(0, itemsArr.length - 1)];
+        firstItemImage.setAttribute('src', firstImageRandom.UrlImages);
+    firstItemImage.setAttribute('alt', firstImageRandom.name);
+
+    secundItemImage.setAttribute('src', secundImageRandom.UrlImages);
+    secundItemImage.setAttribute('alt', secundImageRandom.name);
+
+    thieredItemImage.setAttribute('src', thiredImageRandom.UrlImages);
+    thieredItemImage.setAttribute('alt', thiredImageRandom.name);
     
         }
 
-    firstItemImage.setAttribute('src', firstImageRandom.UrlImages);
-    firstItemImage.setAttribute('alt', firstImageRandom.name);
-    secundItemImage.setAttribute('src', secundImageRandom.UrlImages);
-    secundItemImage.setAttribute('alt', secundImageRandom.name);
-    // 
-    thieredItemImage.setAttribute('src', thiredImageRandom.UrlImages);
-    thieredItemImage.setAttribute('alt', thiredImageRandom.name);
+    // firstItemImage.setAttribute('src', firstImageRandom.UrlImages);
+    // firstItemImage.setAttribute('alt', firstImageRandom.name);
+    // secundItemImage.setAttribute('src', secundImageRandom.UrlImages);
+    // secundItemImage.setAttribute('alt', secundImageRandom.name);
+    // // 
+    // thieredItemImage.setAttribute('src', thiredImageRandom.UrlImages);
+    // thieredItemImage.setAttribute('alt', thiredImageRandom.name);
 }
-
 for (var i = 0; i < itemsEmg.length; i++) {
     new Items(itemsEmg[i]);
 }
