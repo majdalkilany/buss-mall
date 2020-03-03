@@ -67,17 +67,17 @@ function clicksImagesEvint(event){
       }
       if (event.target.id === 'first-item-img'){
         firstImageRandom.clicsks++
-        firstImageRandom.viwe++
+        // firstImageRandom.viwe++
 
       }
       if (event.target.id === 'secund-item-img'){
         firstImageRandom.clicsks++
-        firstImageRandom.viwe++
+        // firstImageRandom.viwe++
 
       }
       if (event.target.id === 'thered-item-img'){
         firstImageRandom.clicsks++
-        firstImageRandom.viwe++
+        // firstImageRandom.viwe++
 
       }
       
@@ -88,6 +88,18 @@ function clicksImagesEvint(event){
        renderChartResults();
       }
 
+}
+for( var j =0 ; j<itemsArr.length; j++ ){
+if ( firstItemImage.alt=== itemsArr[j].name){
+    itemsArr[j].viwe++
+}
+if ( secundItemImage.alt=== itemsArr[j].name){
+    itemsArr[j].viwe++
+}
+// for( var j =0 ; j<itemsArr.length; j++ )
+if ( thieredItemImage.alt=== itemsArr[j].name){
+    itemsArr[j].viwe++
+}
 }
 groupItemSection.addEventListener('click', clicksImagesEvint)
         
