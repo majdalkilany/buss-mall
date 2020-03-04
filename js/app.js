@@ -206,20 +206,19 @@ function renderChartResults() {
 
 }
 function setItem(){
-    var order = JSON.stringify(itemsclick);
+    var order = JSON.stringify(itemsArr);
     localStorage.setItem( 'newValue', order);
-    // var orderview = JSON.stringify(itemsArr);
-    // localStorage.setItem( 'newValueOfViwe', orderview);
-    
+
 console.log()
   }
   function getItem(){
     var newValue = localStorage.getItem('newValue');
-    itemsclick = JSON.parse(newValue);
+    itemsArr = JSON.parse(newValue);
 
-    // var newValueValue = localStorage.getItem('newValueOfViwe');
+    var newValueValue = localStorage.getItem('newValueOfViwe');
     // ItemsViwe = JSON.parse(newValueValue);
-    listItem()
 
   }
-  getItem()
+  listItem()
+
+//   getItem()
