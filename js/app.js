@@ -24,7 +24,6 @@ function Items(name) {
     itemsArr.push(this);
     this.viwe = 0;
     this.clicsks = 0;
-    setItem();
 }
 function pickRandomImages() {
     firstImageRandom = itemsArr[randomNumber(0, itemsArr.length - 1)];
@@ -66,7 +65,6 @@ function pickRandomImages() {
 
 for (var i = 0; i < itemsEmg.length; i++) {
     new Items(itemsEmg[i]);
-    setItem()
         // ulE1= document.getElementById("buss-clicks");
         // ulE1.innerHTML = "";
 
@@ -82,9 +80,10 @@ pickRandomImages();
 function clicksImagesEvint(event) {
     if (event.target.id === 'first-item-img' || event.target.id === 'secund-item-img' || event.target.id === 'thered-item-img') {
         // itemsArr.viwe++
-
+        
         pickRandomImages();
         totalClicks++;
+        setItem();
 
     }
     if (event.target.id === 'first-item-img') {
@@ -107,8 +106,8 @@ function clicksImagesEvint(event) {
 
     if (totalClicks === 25) {
         groupItemSection.removeEventListener('click', clicksImagesEvint);
-        listItem()
         renderChartResults();
+        listItem();
     }
 
 }
@@ -208,17 +207,17 @@ function renderChartResults() {
 function setItem(){
     var order = JSON.stringify(itemsArr);
     localStorage.setItem( 'newValue', order);
-
-console.log()
   }
   function getItem(){
+if( localStorage.getItem('newValue')){
     var newValue = localStorage.getItem('newValue');
     itemsArr = JSON.parse(newValue);
+}
 
     var newValueValue = localStorage.getItem('newValueOfViwe');
     // ItemsViwe = JSON.parse(newValueValue);
-
   }
-  listItem()
+  getItem();
+
 
 //   getItem()
