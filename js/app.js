@@ -214,7 +214,7 @@ if( localStorage.getItem('newValue')){
     itemsArr = JSON.parse(newValue);
 }
 
-    var newValueValue = localStorage.getItem('newValueOfViwe');
+    // var newValueValue = localStorage.getItem('newValueOfViwe');
     // ItemsViwe = JSON.parse(newValueValue);
   }
   getItem();
