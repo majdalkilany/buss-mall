@@ -19,11 +19,50 @@ ul {
     margin: 30px;
     list-style-type: circle;
 } */
+body{
+    height: 100%; 
+}
+main{
+    height: 100%; 
 
+}
 img{
     width: 200px;
     height: 200px;
 }
 div {
     display: inline;
+} 
+header{
+    background-image: linear-gradient(#2d0606, #a60000, #18142b, #440505)  ;
+    color: whitesmoke;
+    padding: 1%;
+    width: 100%;
+
+}
+h1{ 
+    font-size: xx-large;
+    text-align: center;
+    padding: .5%;
+}
+nav{
+    text-align: center;
+
+}
+ #topUl{
+    display: inline-flex;
+}
+ #top {
+    padding: 5px;
+    text-align: center;
+
+}
+footer{
+    text-align : center;
+    background-image: linear-gradient(#2d0606, #a60000, #18142b, #440505)  ;
+    color: whitesmoke;
+    padding: 2%;
+    width: 100%;
+position: static ;
+bottom:  0px;
 }
